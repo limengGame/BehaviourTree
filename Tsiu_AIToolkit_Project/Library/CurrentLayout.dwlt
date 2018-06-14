@@ -547,18 +547,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Arts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Arts
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\UnityProject\Tsiu_AIToolkit_Project\Tsiu_AIToolkit_Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f6240000
-    m_LastClickedID: 9462
+    m_SelectedIDs: ce240000
+    m_LastClickedID: 9422
     m_ExpandedIDs: 00000000ce240000fe24000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -672,7 +672,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 9aeaffff22ebffff00ecffffeaf8ffff74f9ffff52faffffe0fbffff00000000
+    m_ExpandedIDs: 5af8ffffecf8ffffcaf9ffffe0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
