@@ -14,7 +14,7 @@ public class JenkinsAdapter
         EditorBuildSettingsScene[] temp = EditorBuildSettings.scenes;
         for (int i = 0, iMax = temp.Length; i < iMax; ++i)
             sceneList.Add(temp[i].path);
-
-        BuildPipeline.BuildPlayer(sceneList.ToArray(), "./android.apk", BuildTarget.Android, BuildOptions.None);
+        string path = Application.dataPath + "/" + Application.productName + ".apk";
+        BuildPipeline.BuildPlayer(sceneList.ToArray(), path, BuildTarget.Android, BuildOptions.None);
     }
 }
