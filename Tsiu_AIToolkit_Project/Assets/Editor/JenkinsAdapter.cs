@@ -20,12 +20,12 @@ public class JenkinsAdapter
 
     static string GetBuildPathAndroid()
     {
-        string dirPath = Application.dataPath.Replace("/Assets", "") + "/../build/behaviour.apk";
+        string dirPath = Application.dataPath.Replace("/Assets", "") + "/../build";
         if (!System.IO.Directory.Exists(dirPath))
         {
             System.IO.Directory.CreateDirectory(dirPath);
         }
-        return dirPath;
+        return dirPath + "/behaviour.apk";
     }
 
 }
