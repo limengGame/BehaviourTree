@@ -14,7 +14,18 @@ public class JenkinsAdapter
         EditorBuildSettingsScene[] temp = EditorBuildSettings.scenes;
         for (int i = 0, iMax = temp.Length; i < iMax; ++i)
             sceneList.Add(temp[i].path);
-        string path = Application.dataPath + "/" + Application.productName + ".apk";
+        string path = GetBuildPathAndroid();
         BuildPipeline.BuildPlayer(sceneList.ToArray(), path, BuildTarget.Android, BuildOptions.None);
     }
+
+    static string GetBuildPathAndroid()
+    {
+        string dirPath = Application.dataPath.Replace("/Assets", "") + "/../build/behaviour.apk";
+        if (!System.IO.Directory.Exists(dirPath))
+        {
+            System.IO.Directory.CreateDirectory(dirPath);
+        }
+        return dirPath;
+    }
+
 }
