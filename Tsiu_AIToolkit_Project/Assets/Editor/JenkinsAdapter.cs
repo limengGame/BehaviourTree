@@ -20,7 +20,8 @@ public class JenkinsAdapter
 
     static string GetBuildPathAndroid()
     {
-        string dirPath = Application.dataPath.Replace("/Assets", "") + "/../build";
+        //string dirPath = Application.dataPath.Replace("/Assets", "") + "/../build";
+        string dirPath = "C:/Resource";
         if (!System.IO.Directory.Exists(dirPath))
         {
             System.IO.Directory.CreateDirectory(dirPath);
