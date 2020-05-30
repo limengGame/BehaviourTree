@@ -34,6 +34,7 @@ public class JenkinsAdapter
 
     static string GetJenkinsParameter()
     {
+        return Environment.GetCommandLineArgs().ToString();
         foreach (string arg in Environment.GetCommandLineArgs())
         {
             if (!string.IsNullOrEmpty(arg))
