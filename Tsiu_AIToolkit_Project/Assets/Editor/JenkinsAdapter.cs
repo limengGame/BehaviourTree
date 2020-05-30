@@ -34,15 +34,15 @@ public class JenkinsAdapter
 
     static string GetJenkinsParameter()
     {
-        return Environment.GetCommandLineArgs().ToString();
+        string str = "";
         foreach (string arg in Environment.GetCommandLineArgs())
         {
             if (!string.IsNullOrEmpty(arg))
             {
-                return (arg.Split('-') != null && arg.Split('-').Length > 0) ? arg.Split('-')[0] : "";
+                str += arg;
             }
         }
-        return "";
+        return str;
     }
 
 }
