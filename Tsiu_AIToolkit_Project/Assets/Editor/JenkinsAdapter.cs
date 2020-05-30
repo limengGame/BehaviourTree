@@ -38,7 +38,7 @@ public class JenkinsAdapter
         {
             if (!string.IsNullOrEmpty(arg))
             {
-                return (arg.Split('-') != null && arg.Split('-').Length > 1) ? arg.Split('-')[1] : "";
+                return (arg.Split('-') != null && arg.Split('-').Length > 0) ? arg.Split('-')[0] : "";
             }
         }
         return "";
