@@ -15,7 +15,7 @@ public class JenkinsAdapter
         for (int i = 0, iMax = temp.Length; i < iMax; ++i)
             sceneList.Add(temp[i].path);
         string path = GetBuildPathAndroid();
-        BuildPipeline.BuildPlayer(sceneList.ToArray(), path, BuildTarget.Android, BuildOptions.None);
+        BuildPipeline.BuildPlayer(sceneList.ToArray(), "/behaviour.apk", BuildTarget.Android, BuildOptions.None);
     }
 
     static string GetBuildPathAndroid()
