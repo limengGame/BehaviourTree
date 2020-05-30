@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class JenkinsAdapter
         for (int i = 0, iMax = temp.Length; i < iMax; ++i)
             sceneList.Add(temp[i].path);
         string path = GetBuildPathAndroid();
+        Debug.Log("StartBuild!");
+        Debug.Log("JenkinsParams: " + GetJenkinsParameter());
         BuildPipeline.BuildPlayer(sceneList.ToArray(), path, BuildTarget.Android, BuildOptions.None);
     }
 
@@ -27,6 +30,18 @@ public class JenkinsAdapter
             System.IO.Directory.CreateDirectory(dirPath);
         }
         return dirPath + "/behaviour.apk";
+    }
+
+    static string GetJenkinsParameter()
+    {
+        foreach (string arg in Environment.GetCommandLineArgs())
+        {
+            if (!string.IsNullOrEmpty(arg))
+            {
+                return (arg.Split('-') != null && arg.Split('-').Length > 1) ? arg.Split('-')[1] : "";
+            }
+        }
+        return "";
     }
 
 }
