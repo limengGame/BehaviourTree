@@ -18,6 +18,11 @@ public class JenkinsAdapter
         string path = GetBuildPathAndroid();
         Debug.Log("StartBuild!");
         Debug.Log("JenkinsParams: " + GetJenkinsParameter());
+
+        if(CommandLineTool.HasCommandArgs(CommandArgsName.Channel))
+            Debug.Log("JenkinsCommandParams: " + CommandLineTool.GetEnvironmentVariable(CommandArgsName.Channel));
+
+
         BuildPipeline.BuildPlayer(sceneList.ToArray(), path, BuildTarget.Android, BuildOptions.None);
     }
 
@@ -44,5 +49,28 @@ public class JenkinsAdapter
         }
         return str;
     }
+
+    enum CommandArgsName
+    {
+        Version,
+        Channel,
+        BuildType,
+    }
+    class CommandLineTool
+    {
+        private static Dictionary<CommandArgsName, string> dicCommandArgsName = new Dictionary<CommandArgsName, string>();
+        public static string GetEnvironmentVariable(CommandArgsName commandArgsName)
+        {
+            return dicCommandArgsName.ContainsKey(commandArgsName) ? dicCommandArgsName[commandArgsName] :
+             System.Environment.GetEnvironmentVariable(commandArgsName.ToString()) ?? string.Empty;
+        }
+
+        public static bool HasCommandArgs(CommandArgsName commandArgsName)
+        {
+            var value = GetEnvironmentVariable(commandArgsName);
+            return !(string.IsNullOrEmpty(value) || string.Compare(value, "false", true) == 0);
+        }
+    }
+
 
 }
